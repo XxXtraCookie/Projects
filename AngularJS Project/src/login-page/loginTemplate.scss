@@ -1,0 +1,10 @@
+.container-login {
+  width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgb(234, 234, 234);
+}
+
+form.form-signin ::-webkit-input-placeholder {
+  font-weight: bold;
+}

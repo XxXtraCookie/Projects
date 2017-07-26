@@ -1,0 +1,144 @@
+<div class="container main-content">
+
+  <form class="registrationForm"
+        name="registerForm" 
+        ng-submit="register.onSubmit(register.user)" 
+        novalidate="novalidate">
+
+    <p class="regIt">Registration</p>
+
+    <!-- Name -->
+    <div class="form-group">
+      <input type="text" 
+             name="name" 
+             class="form-control" 
+             id="name" 
+             required="" 
+             placeholder="* Name"
+             autofocus
+             ng-model="register.user.name"
+             ng-pattern="/^[^0-9]+$/" 
+             ng-minlength="3"/>
+
+      <div ng-messages="registerForm.name.$error" ng-show="registerForm.name.$touched" style="color:red" role="alert">
+        <div ng-message="required">Name is required</div>
+        <div ng-message="minlength">Name must be at least 3 characters long</div>
+        <div ng-message="pattern">Only letters allowed</div>
+      </div>
+    </div>
+
+    <!-- Age-->
+    <div class="form-group">
+      <input type="number" 
+             name="age" 
+             class="form-control" 
+             id="age" 
+             min="18" 
+             required="" 
+             placeholder="* Age" 
+             ng-model="register.user.age"
+             ng-min="18"/>
+
+      <div ng-messages="registerForm.age.$error" ng-show="registerForm.age.$touched" style="color:red" role="alert">
+        <div ng-message="min">You must be at leats 18 years old</div>
+        <div ng-message="required">You must be at leats 18 years old</div>
+      </div>
+    </div>
+
+    <!-- E-mail -->
+    <div class="form-group">
+      <input type="email" 
+             name="email" 
+             class="form-control" 
+             id="email" 
+             required="" 
+             placeholder="* E-mail" 
+             ng-model="register.user.email"
+             ng-pattern="/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/"/>
+
+      <div ng-messages="registerForm.email.$error" ng-show="registerForm.email.$touched" style="color:red" role="alert">
+        <div ng-message="required">Valid Е-mail is required</div>
+        <div ng-message="pattern">Valid Е-mail is required</div>
+      </div>
+    </div>
+
+    <!-- Username -->
+    <div class="form-group">
+      <input type="text" 
+             name="username"
+             class="form-control" 
+             id="username" 
+             required="" 
+             placeholder="* Username"               
+             ng-model="register.user.username"
+             ng-pattern="/^[A-Za-z0-9_]{5,20}$/" 
+             user-validator 
+             ng-model-options="{ getterSetter : true, updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }"/>
+
+     <div ng-messages="registerForm.username.$error" ng-show="registerForm.username.$touched" style="color:red" role="alert">
+        <div ng-message="userAvailable">This user already exists</div>
+        <div ng-message="pattern">Username must be between 5 and 20 alphanumeric Latin characters long</div>
+        <div ng-message="required">Username is required</div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <input type="password" 
+             name="password" 
+             class="form-control" 
+             id="password" 
+             required="" 
+             placeholder="* Password" 
+             ng-model="register.user.password"
+             ng-minlength="7"/>
+
+      <div ng-messages="registerForm.password.$error" ng-show="registerForm.password.$touched" style="color:red" role="alert">
+        <div ng-message="minlength">Your Password must be at least 7 characters long</div>
+        <div ng-message="required">Password is required</div>
+      </div>
+
+    </div>
+
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <input type="password" 
+             name="confirmPassword" 
+             class="form-control" 
+             id="confirmPassword" 
+             required=""  
+             placeholder="* Confirm password"
+             ng-model="register.user.confirmPassword" 
+             ng-minlength="7"/>
+
+      <div ng-show="register.user.confirmPassword.length > 0 && register.user.password !== register.user.confirmPassword" style="color:red" role="alert">Password missmatch</div>
+      <div ng-show="register.user.confirmPassword.length > 0 && register.user.password === register.user.confirmPassword" style="color:green" role="alert">Password match</div>
+
+      <div ng-messages="registerForm.confirmPassword.$error" ng-show="registerForm.confirmPassword.$touched" style="color:red" role="alert">
+        <div ng-message="minlength">Your Password must be at least 7 characters long</div>
+        <div ng-message="required">Password and Password Confirm are required</div>
+      </div>
+
+    </div>
+
+    <!-- Register button -->
+    <div class="form-group">
+      <button class="btn btn-primary" 
+              type="submit" 
+              ng-disabled="
+                !registerForm.name.$valid ||
+                !registerForm.age.$valid ||
+                !registerForm.email.$valid ||
+                !registerForm.username.$valid ||
+                !registerForm.password.$valid ||
+                !registerForm.confirmPassword.$valid ||
+                (register.user.password !== register.user.confirmPassword)">
+            Create account
+      </button>
+    </div>
+
+    <p>Fields with <span id="reqInfo">*</span> must be filled.</p>
+
+  </form>
+</div>
