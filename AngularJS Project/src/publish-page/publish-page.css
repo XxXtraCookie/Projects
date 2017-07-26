@@ -20,7 +20,10 @@
 }
 
 body {
-  background-color: #fff;
+  background-image: url('images/argoflex.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
 }
 
 .containerPublishing {
