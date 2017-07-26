@@ -25,6 +25,10 @@ form.registrationForm button {
   margin-top: 20px;
 }
 
+form.registrationForm button:hover {
+  background-color: rgb(75,141,249);
+}
+
 form.registrationForm span#reqInfo {
   font-size: 18px;
   font-weight: bold;
