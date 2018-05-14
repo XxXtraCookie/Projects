@@ -1,6 +1,7 @@
 const commonPaths = require('./common-paths');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin'); // FOR SASS
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // FOR SASS
 
 const config = {
   mode: 'production',
@@ -48,6 +49,12 @@ const config = {
     new ExtractTextPlugin({
       filename: 'styles/styles.[hash].css',
       allChunks: true
+    }),
+    new HtmlWebpackPlugin({ // FOR SASS
+      inject: false,
+      hash: true,
+      template: '../public/index.html',
+      filename: 'index.html'
     })
   ]
 };
