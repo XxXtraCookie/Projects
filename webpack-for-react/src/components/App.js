@@ -6,33 +6,30 @@ import {
 } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 
-import Home from './Home';
-import Loading from './Loading';
+import Header from '../components/Header';
+import Explore from '../components/Explore';
 
-const AsyncDynamicPAge = importedComponent(
-  () => import(/* webpackChunkName:'DynamicPage' */ './DynamicPage'),
-  {
-    LoadingComponent: Loading
-  }
-);
-const AsyncNoMatch = importedComponent(
-  () => import(/* webpackChunkName:'NoMatch' */ './NoMatch'),
-  {
-    LoadingComponent: Loading
-  }
-);
+// const AsyncDynamicPage = importedComponent(
+//   () => import('./DynamicPage'), {LoadingComponent: Loading}
+// );
+
+// const AsyncNoMatch = importedComponent(
+//   () => import('./NoMatch'), {LoadingComponent: Loading}
+// );
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/dynamic" component={AsyncDynamicPAge} />
-          <Route component={AsyncNoMatch} />
-        </Switch>
-      </div>
-    </Router>
+    <div className="main-container">
+    <Header />
+
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Explore} />
+          </Switch>
+        </div>
+      </Router>
+    </div>
   );
 };
 
