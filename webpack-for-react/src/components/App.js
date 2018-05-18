@@ -8,7 +8,6 @@ import importedComponent from 'react-imported-component';
 
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
-import Explore from '../components/Explore';
 
     //   <Router>
     //     <div>
@@ -21,10 +20,8 @@ import Explore from '../components/Explore';
 const App = () => {
   return (
     <div className="main-container">
-    <Header />
-    <MainSection>
-      <Explore />
-    </MainSection>
+      <Header/>
+      <MainSection/>
     </div>
   );
 };

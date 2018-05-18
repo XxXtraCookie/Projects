@@ -1,10 +1,12 @@
 import React from 'react';
+import Explore from '../Explore';
 
 class MainSection extends React.Component {
   render() {
-    return (
-      // TODO: look how children work in REACT !!!
-      {...children}
+    return(
+      <div className="explore-section">
+        <Explore/>
+      </div>
     );
   }
 }
