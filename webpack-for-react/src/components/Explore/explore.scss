@@ -1,7 +1,12 @@
 .explore {
   width: 100vw;
   height: auto;
-  position: absolute;
-  top: 50px;
-  border: 3px solid red;
+  background: #F3F5F6;
+
+  .images-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
 }
