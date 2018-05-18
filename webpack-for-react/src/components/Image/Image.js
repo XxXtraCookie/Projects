@@ -9,8 +9,13 @@ class Image extends React.Component {
       imgAlt,
       title,
       author,
-      description
+      description,
+      tags
     } = this.props;
+
+    const imageTags = tags && tags.map((tag, idx) => {
+      return <a href={tag[idx]}>tag{idx + 1}, </a>
+    });
 
     return (
       <div className="image-wrapper">
@@ -20,10 +25,13 @@ class Image extends React.Component {
 
         <div className="image-desc">
           <p>
-            <a href={title}>Photo title</a> by <a href={author}>author</a>
+            <a href="#">{title}</a> by <a href="#">{author}</a>
           </p>
           <p>
             <span>Description</span> {description}
+          </p>
+          <p>
+            <span>Tags:</span> {imageTags}
           </p>
         </div>
       </div>

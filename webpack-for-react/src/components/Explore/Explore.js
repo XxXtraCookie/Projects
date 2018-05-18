@@ -14,6 +14,13 @@ class Explore extends React.Component {
         author: 'Peter',
         description: 'In a Galaxy far far away there was a vicious Bean ...',
         id: 1,
+        tags: [
+          'https://i.pinimg.com/736x/d2/4e/d5/d24ed55ffc88deee28a50d6a53156691--mr-bean-funny-lil-wayne.jpg',
+          'https://i.pinimg.com/736x/d2/4e/d5/d24ed55ffc88deee28a50d6a53156691--mr-bean-funny-lil-wayne.jpg',
+          'https://i.pinimg.com/736x/d2/4e/d5/d24ed55ffc88deee28a50d6a53156691--mr-bean-funny-lil-wayne.jpg',
+          'https://i.pinimg.com/736x/d2/4e/d5/d24ed55ffc88deee28a50d6a53156691--mr-bean-funny-lil-wayne.jpg',
+          'https://i.pinimg.com/736x/d2/4e/d5/d24ed55ffc88deee28a50d6a53156691--mr-bean-funny-lil-wayne.jpg',
+        ]
       },
       {
         imgUrl: 'https://i.pinimg.com/736x/d2/4e/d5/d24ed55ffc88deee28a50d6a53156691--mr-bean-funny-lil-wayne.jpg',
@@ -82,6 +89,7 @@ class Explore extends React.Component {
             title={image.title}
             author={image.author}
             description={image.description}
+            tags={image.tags}
           />
         </div>
       );
