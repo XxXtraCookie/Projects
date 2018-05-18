@@ -1,0 +1,21 @@
+$maxPercents: 100%;
+
+.image-wrapper {
+  padding: 10px;
+
+  .image {
+    width: $maxPercents;
+    height: 200px;
+    img {
+      width: $maxPercents;
+      height: $maxPercents;
+    }
+  }
+
+  .image-desc {
+    & span {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+  }
+}
