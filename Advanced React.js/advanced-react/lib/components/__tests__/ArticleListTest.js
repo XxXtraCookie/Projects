@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleList from '../ArticleList';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 describe('ArticleList', () => {
 
@@ -9,7 +9,7 @@ describe('ArticleList', () => {
       a: { id: 'a', },
       b: { id: 'b', },
     },
-    articleActions: {
+    store: {
       lookupAuthor: jest.fn(() => ({})),
     },
   };

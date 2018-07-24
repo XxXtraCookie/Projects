@@ -9,7 +9,6 @@ const ArticleList = (props) => {
           return <Article
             key={article.id}
             article={article}
-            store={props.store}
           />;
         })
       }

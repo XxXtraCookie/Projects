@@ -27,7 +27,9 @@ exports[`ArticleList renders correctly 1`] = `
           "fontSize": "0.85em",
         }
       }
-    />
+    >
+      Invalid Date
+    </div>
     <div
       style={
         Object {
@@ -35,7 +37,11 @@ exports[`ArticleList renders correctly 1`] = `
           "paddingTop": 10,
         }
       }
-    />
+    >
+      <a>
+         
+      </a>
+    </div>
     <div
       style={
         Object {
@@ -69,7 +75,9 @@ exports[`ArticleList renders correctly 1`] = `
           "fontSize": "0.85em",
         }
       }
-    />
+    >
+      Invalid Date
+    </div>
     <div
       style={
         Object {
@@ -77,7 +85,11 @@ exports[`ArticleList renders correctly 1`] = `
           "paddingTop": 10,
         }
       }
-    />
+    >
+      <a>
+         
+      </a>
+    </div>
     <div
       style={
         Object {

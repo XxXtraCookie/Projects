@@ -1,7 +1,7 @@
-import DataApi from 'state-api';
+import StateApi from '../state-api/lib/index';
 import { data } from '../testData';
 
-const store = new DataApi(data);
+const store = new StateApi(data);
 
 describe('DataApi', () => {
 
