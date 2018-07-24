@@ -26,16 +26,16 @@ const styles = {
 
 const Article = (props) => {
   const { article, actions } = props;
-  const author = actions.lookupAuthor(article.authorId);
+  const author = actions.lookupAuthor(article['id']);
 
   return (
     <div style={styles.article}>
       <div style={styles.title}>{article.title}</div>
       <div style={styles.date}>{article.date}</div>
       <div style={styles.author}>
-        <a href={author.website}>
+        {/* <a href={author.website}>
           {author.firstname} {author.lastName}
-        </a>
+        </a> */}
       </div>
       <div style={styles.body}>{article.body}</div>
     </div>
