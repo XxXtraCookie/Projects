@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import storeProvider from './storeProvider';
 
 const styles = {
   article: {
@@ -27,9 +28,8 @@ const styles = {
 const dateDisplay = (dateString) =>
   new Date(dateString).toDateString();
 
-const Article = (props, context) => {
-  const { article } = props;
-  const author = context.store.lookupAuthor(article.authorId);
+const Article = (props) => {
+  const { article, author } = props;
 
   return (
     <div style={styles.article}>
@@ -55,8 +55,10 @@ Article.propTypes = {
   }),
 };
 
-Article.contextTypes = {
-  store: PropTypes.object,
-};
+function extraProps(store, originalProps) {
+  return {
+    author: store.lookupAuthor(originalProps.article.authorId),
+  };
+}
 
-export default Article;
+export default storeProvider(extraProps)(Article);
