@@ -23,19 +23,23 @@ const styles = {
     paddingLeft: 20,
   },
 };
+const dateDisplay = (dateString) =>
+  new Date(dateString).toDateString();
 
 const Article = (props) => {
-  const { article, actions } = props;
-  const author = actions.lookupAuthor(article['id']);
+  const { article, store } = props;
+  const author = store.lookupAuthor(article.authorId);
 
   return (
     <div style={styles.article}>
       <div style={styles.title}>{article.title}</div>
-      <div style={styles.date}>{article.date}</div>
+      <div style={styles.date}>
+        {dateDisplay(article.date)}
+      </div>
       <div style={styles.author}>
-        {/* <a href={author.website}>
+        <a href={author.website}>
           {author.firstname} {author.lastName}
-        </a> */}
+        </a>
       </div>
       <div style={styles.body}>{article.body}</div>
     </div>

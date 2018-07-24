@@ -9,7 +9,7 @@ const ArticleList = (props) => {
           return <Article
             key={article.id}
             article={article}
-            actions={props.articleActions}
+            store={props.store}
           />;
         })
       }
