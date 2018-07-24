@@ -3,7 +3,7 @@ const path = require('path');
 const config = {
   resolve: {
     modules: [
-      // path.resolve('./lib'),
+      path.resolve('./lib'),
       path.resolve('./node_modules'),
     ]
   },
