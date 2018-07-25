@@ -33,11 +33,11 @@ const config = {
       }
     }]
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
+  optimization: {
+    splitChunks: {
       name: 'vendor'
-    })
-  ]
+    }
+  }
 };
 
 module.exports = config;

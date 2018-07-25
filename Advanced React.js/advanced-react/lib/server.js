@@ -1,6 +1,6 @@
 import express from 'express';
 import config from './config';
-import serverRender from 'renderers/server';
+import serverRender from './renderers/server';
 import { data } from './testData';
 
 const app = express();
