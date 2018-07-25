@@ -11,7 +11,12 @@ class App extends React.Component {
     store: PropTypes.object,
   };
 
-  state = this.props.store.getState();
+  appState = () => {
+    const { articles, searchTerm } = this.props.store.getState();
+    return { articles, searchTerm };
+  }
+
+  state = this.appState();
 
   componentDidMount() {
     this.subscriptionId = this.props.store.subscribe(this.onStoreChange);
@@ -23,7 +28,7 @@ class App extends React.Component {
   }
 
   onStoreChange = () => {
-    this.setState(this.props.store.getState());
+    this.setState(this.appState);
   }
 
   getChildContext() {

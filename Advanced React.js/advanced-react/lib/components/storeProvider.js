@@ -8,6 +8,12 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
       store: PropTypes.object,
     };
 
+    usedState = () => {
+      return extraProps(this.context.store, this.props);
+    }
+
+    state = this.usedState();
+
     componentDidMount() {
       this.subscriptionId = this.context.store.subscribe(this.onStoreChange);
     }
@@ -19,7 +25,7 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
   
     onStoreChange = () => {
       if (this.subscriptionId) {
-        this.forceUpdate();
+        this.setState(this.usedState());
       }
     }
 
@@ -27,7 +33,7 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
       return (
         <Component
           {...this.props}
-          {...extraProps(this.context.store, this.props)}
+          {...this.usedState()}
           store={this.context.store}
         />
       );
