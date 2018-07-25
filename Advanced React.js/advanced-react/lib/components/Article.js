@@ -14,7 +14,7 @@ const styles = {
     fontWeight: 'bold',
   },
   date: {
-    fontSize: '0.85em',
+    fontSize: '0.8em',
     color: '#888',
   },
   author: {
@@ -23,7 +23,7 @@ const styles = {
   },
   body: {
     paddingLeft: 20,
-  },
+  }
 };
 const dateDisplay = (dateString) =>
   new Date(dateString).toDateString();
@@ -31,7 +31,6 @@ const dateDisplay = (dateString) =>
 class Article extends React.PureComponent {
   render() {
     const { article, author } = this.props;
-
     return (
       <div style={styles.article}>
         <div style={styles.title}>{article.title}</div>
@@ -40,7 +39,7 @@ class Article extends React.PureComponent {
         </div>
         <div style={styles.author}>
           <a href={author.website}>
-            {author.firstname} {author.lastName}
+            {author.firstName} {author.lastName}
           </a>
         </div>
         <div style={styles.body}>{article.body}</div>
@@ -52,9 +51,9 @@ class Article extends React.PureComponent {
 Article.propTypes = {
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
-  }),
+    date: PropTypes.string.isRequired,
+  })
 };
 
 function extraProps(store, originalProps) {

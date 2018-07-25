@@ -1,4 +1,4 @@
-import StateApi from '../state-api/lib/index';
+import StateApi from 'state-api';
 import { data } from '../testData';
 
 const store = new StateApi(data);
@@ -18,7 +18,6 @@ describe('DataApi', () => {
     const authors = store.getState().authors;
     const authorId = data.authors[0].id;
     const authorFirstName = data.authors[0].firstName;
-
     expect(authors).toHaveProperty(authorId);
     expect(authors[authorId].firstName).toBe(authorFirstName);
   });

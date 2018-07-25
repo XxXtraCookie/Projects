@@ -6,52 +6,46 @@ import ArticleList from './ArticleList';
 import SearchBar from './SearchBar';
 import Timestamp from './Timestamp';
 
-class App extends React.Component {
+class App extends React.PureComponent {
   static childContextTypes = {
     store: PropTypes.object,
   };
-
+  getChildContext() {
+    return {
+      store: this.props.store
+    };
+  }
   appState = () => {
     const { articles, searchTerm } = this.props.store.getState();
     return { articles, searchTerm };
   }
-
   state = this.appState();
-
+  onStoreChange = () => {
+    this.setState(this.appState);
+  }
   componentDidMount() {
     this.subscriptionId = this.props.store.subscribe(this.onStoreChange);
     this.props.store.startClock();
   }
-
-  UNSAFE_componentWillUnmount() {
+  componentWillUnmount() {
     this.props.store.unsubscribe(this.subscriptionId);
   }
-
-  onStoreChange = () => {
-    this.setState(this.appState);
-  }
-
-  getChildContext() {
-    return {
-      store: this.props.store,
-    };
-  }
-
   render() {
     let { articles, searchTerm } = this.state;
     const searchRE = new RegExp(searchTerm, 'i');
     if (searchTerm) {
       articles = pickBy(articles, (value) => {
-        return value.title.match(searchRE) ||
-          value.body.match(searchRE);
+        return value.title.match(searchRE)
+          || value.body.match(searchRE);
       });
     }
-
     return (
       <div>
         <Timestamp />
         <SearchBar />
-        <ArticleList articles={articles} />
+        <ArticleList
+          articles={articles}
+        />
       </div>
     );
   }

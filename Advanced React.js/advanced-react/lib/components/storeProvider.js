@@ -10,33 +10,27 @@ const storeProvider = (extraProps = () => ({})) => (Component) => {
 
     usedState = () => {
       return extraProps(this.context.store, this.props);
-    }
+    };
 
     state = this.usedState();
 
-    componentDidMount() {
-      this.subscriptionId = this.context.store.subscribe(this.onStoreChange);
-    }
-  
-    UNSAFE_componentWillUnmount() {
-      this.context.store.unsubscribe(this.subscriptionId);
-      this.subscriptionId = null;
-    }
-  
     onStoreChange = () => {
       if (this.subscriptionId) {
         this.setState(this.usedState());
       }
     }
-
+    componentDidMount() {
+      this.subscriptionId = this.context.store.subscribe(this.onStoreChange);
+    }
+    componentWillUnmount() {
+      this.context.store.unsubscribe(this.subscriptionId);
+      this.subscriptionId = null;
+    }
     render() {
-      return (
-        <Component
-          {...this.props}
-          {...this.usedState()}
-          store={this.context.store}
-        />
-      );
+      return <Component
+        {...this.props}
+        {...this.usedState()}
+        store={this.context.store} />;
     }
   };
 };

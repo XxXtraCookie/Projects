@@ -1,11 +1,12 @@
 import express from 'express';
 import config from './config';
-import serverRender from './renderers/server';
-import { data } from '../lib/testData';
+import serverRender from 'renderers/server';
+import { data } from './testData';
 
 const app = express();
 
 app.use(express.static('public'));
+
 app.set('view engine', 'ejs');
 
 app.get('/', async (req, res) => {
@@ -18,5 +19,5 @@ app.get('/data', (req, res) => {
 });
 
 app.listen(config.port, function listenHandler() {
-  console.info(`Running on ${config.port}`);
+  console.info(`Running on ${config.port}...`);
 });

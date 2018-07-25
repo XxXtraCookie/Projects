@@ -6,49 +6,65 @@ class StateApi {
       searchTerm: '',
       timestamp: new Date(),
     };
-
     this.subscriptions = {};
     this.lastSubscriptionId = 0;
-  }
 
+    setTimeout(() => {
+      const fakeArticle = {
+        ...rawData.articles[0],
+        id: 'fakeArticleId',
+      };
+      // this.data.articles[fakeArticle.id] = fakeArticle;
+      this.data = {
+        ...this.data,
+        articles: {
+          ...this.data.articles,
+          [fakeArticle.id]: fakeArticle,
+        },
+      };
+      this.notifySubscribers();
+    }, 1000);
+  }
   mapIntoObject(arr) {
     return arr.reduce((acc, curr) => {
       acc[curr.id] = curr;
       return acc;
     }, {});
   }
+  lookupAuthor = (authorId) => {
+    return this.data.authors[authorId];
+  };
+  getState = () => {
+    return this.data;
+  };
 
-  lookupAuthor = (authorId) => this.data.authors[authorId];
-
-  getState = () => this.data;
-
-  subscribe = (cb) => {
+  subscribe = cb => {
     this.lastSubscriptionId++;
     this.subscriptions[this.lastSubscriptionId] = cb;
     return this.lastSubscriptionId;
-  }
+  };
 
-  unsubscribe = (subscriptionId) => {
+  unsubscribe = subscriptionId => {
     delete this.subscriptions[subscriptionId];
-  }
+  };
 
   notifySubscribers = () => {
-    Object.values(this.subscriptions).forEach((cb) => cb());
-  }
+    Object.values(this.subscriptions).forEach(cb => cb());
+  };
 
-  mergeWithState = (stateChange) => {
+  mergeWithState = stateChange => {
     this.data = {
       ...this.data,
-      ...stateChange
+      ...stateChange,
     };
     this.notifySubscribers();
-  }
+  };
 
-  setSearchTerm = (searchTerm) => {
+  setSearchTerm = searchTerm => {
     this.mergeWithState({
       searchTerm,
     });
-  }
+  };
 
   startClock = () => {
     setInterval(() => {
@@ -56,8 +72,7 @@ class StateApi {
         timestamp: new Date(),
       });
     }, 1000);
-  }
-
+  };
 }
 
 export default StateApi;

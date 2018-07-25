@@ -1,20 +1,13 @@
 import React from 'react';
 import ArticleList from '../ArticleList';
-import Article from '../Article';
-
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
-
 import { shallow } from 'enzyme';
 
 describe('ArticleList', () => {
 
   const testProps = {
     articles: {
-      a: { id: 'a', },
-      b: { id: 'b', },
+      a: { id: 'a' },
+      b: { id: 'b' },
     },
   };
 
