@@ -1,4 +1,4 @@
-# Advanced React.js
+# Advanced React.js / Node & Express
 
 * yarn dev
 * yarn webpack
