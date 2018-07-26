@@ -1,15 +1,37 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as courseActions from '../../actions/courseActions.js';
+import CourseList from './CourseList';
 
-class CoutrsesPage extends React.Component {
+class CoursesPage extends React.Component {
   render() {
+    const { courses } = this.props;
+
     return (
       <div>
         <h1>Courses</h1>
+        <CourseList courses={courses}/>
       </div>
     );
   }
 }
 
-CoutrsesPage.propTypes = {};
+CoursesPage.propTypes = {
+  courses: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
+};
 
-export default CoutrsesPage;
+function mapStateToProps(state, ownProps) {
+  return {
+    courses: state.courses
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(courseActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
