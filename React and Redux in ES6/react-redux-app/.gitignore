@@ -34,3 +34,6 @@ dist
 
 # Mac files
 .DS_Store
+
+# VS Code json settings
+.vscode
