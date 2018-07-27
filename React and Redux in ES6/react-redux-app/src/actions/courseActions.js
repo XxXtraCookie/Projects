@@ -1,4 +1,8 @@
-import { LOAD_COURSES_SUCCESS } from '../constants/actionTypes';
+import {
+  LOAD_COURSES_SUCCESS,
+  CREATE_COURSE_SUCCESS,
+  UPDATE_COURSE_SUCCESS
+} from '../constants/actionTypes';
 import courseApi from '../api/mockCourseApi';
 
 export function loadCoursesSuccess(courses) {
@@ -8,8 +12,24 @@ export function loadCoursesSuccess(courses) {
   };
 }
 
+export function createCourseSuccess(course) {
+  return { type: CREATE_COURSE_SUCCESS, course };
+}
+
+export function updateCourseSuccess(course) {
+  return { type: UPDATE_COURSE_SUCCESS, course };
+}
+
 export function loadCourses() {
   return dispatch => courseApi.getAllCourses()
     .then(courses => dispatch(loadCoursesSuccess(courses)))
-    .catch(error => console.log(error));
+    .catch(error => console.error(error));
+}
+
+export function saveCourse(course) {
+  return dispatch => courseApi.saveCourse(course)
+    .then(savedCourse => course.id ?
+      dispatch(updateCourseSuccess(savedCourse)) :
+      dispatch(createCourseSuccess(savedCourse)))
+    .catch(error => console.error(error));
 }
