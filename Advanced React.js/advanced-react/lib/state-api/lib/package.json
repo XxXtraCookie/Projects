@@ -1,8 +1,0 @@
-{
-  "name": "lib",
-  "version": "1.0.0",
-  "description": "State API",
-  "main": "lib/index.js",
-  "author": "Petar Kolev",
-  "license": "MIT"
-}
