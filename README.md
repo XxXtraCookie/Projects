@@ -14,3 +14,9 @@
    * ES6
    * Node.js
    * Express
+
+  4. Tour of Heroes
+   * ES6
+   * TypeScript
+   * Angular 6
+   * RxJS
