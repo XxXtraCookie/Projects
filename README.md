@@ -20,3 +20,8 @@
    * TypeScript
    * Angular 6
    * RxJS
+
+  5. Front-End Showoff
+   * ES7
+   * React.js
+   * React-router

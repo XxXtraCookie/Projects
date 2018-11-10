@@ -1,0 +1,37 @@
+@import '../../constants/constants.scss';
+@font-face {
+  font-family: righteous;
+  src: url(../../fonts/Righteous-Regular.ttf);
+}
+
+.main-header {
+  display: flex;
+  height: 70px;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: $headerColor;
+  .logo {
+    flex: 1;
+    display: flex;
+    color: #fff;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 15px;
+    align-items: center;
+    font-family: 'righteous', cursive;
+    em {
+      color: red;
+      font-size: 1.5rem;
+    }
+  }
+  .logo-sub-text {
+    flex: 1;
+    display: flex;
+    color: lime;
+    height: 100%;
+    align-items: flex-end;
+    font-family: 'righteous', cursive;
+  }
+}
