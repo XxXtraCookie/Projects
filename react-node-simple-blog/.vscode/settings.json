@@ -1,8 +1,10 @@
 {
   "cSpell.words": [
     "babel",
+    "crossorigin",
     "lightblog",
     "polyfill",
     "resave"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }

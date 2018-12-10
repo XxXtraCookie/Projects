@@ -61,4 +61,4 @@ app.use((err, req, res) => {
   });
 });
 
-const server = app.listen(8000, () => console.log('Server started on http://localhost:8000'));
+app.listen(8000, () => console.log('Server started on http://localhost:8000'));
