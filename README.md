@@ -25,3 +25,12 @@
    * ES7
    * React.js
    * React-router
+
+  6. React/Node Simple Blog
+   * ES6
+   * React.js
+   * React-router
+   * Redux
+   * Webpack
+   * Express
+   * MongoDB
