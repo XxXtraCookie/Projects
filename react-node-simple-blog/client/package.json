@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
-  "author": "Petar Kolev [XxXtraCookie]",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel": "^6.23.0",

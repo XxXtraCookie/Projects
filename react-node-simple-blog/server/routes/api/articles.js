@@ -5,7 +5,7 @@ const Articles = mongoose.model('Articles');
 router.post('/', (req, res, next) => {
   const { body } = req;
 
-  if (!body.title) {
+  if(!body.title) {
     return res.status(422).json({
       errors: {
         title: 'is required',
@@ -13,7 +13,7 @@ router.post('/', (req, res, next) => {
     });
   }
 
-  if (!body.author) {
+  if(!body.author) {
     return res.status(422).json({
       errors: {
         author: 'is required',
@@ -21,7 +21,7 @@ router.post('/', (req, res, next) => {
     });
   }
 
-  if (!body.body) {
+  if(!body.body) {
     return res.status(422).json({
       errors: {
         body: 'is required',
@@ -44,9 +44,9 @@ router.get('/', (req, res, next) => {
 
 router.param('id', (req, res, next, id) => {
   return Articles.findById(id, (err, article) => {
-    if (err) {
+    if(err) {
       return res.sendStatus(404);
-    } else if (article) {
+    } else if(article) {
       req.article = article;
       return next();
     }
@@ -62,15 +62,15 @@ router.get('/:id', (req, res, next) => {
 router.patch('/:id', (req, res, next) => {
   const { body } = req;
 
-  if (typeof body.title !== 'undefined') {
+  if(typeof body.title !== 'undefined') {
     req.article.title = body.title;
   }
 
-  if (typeof body.author !== 'undefined') {
+  if(typeof body.author !== 'undefined') {
     req.article.author = body.author;
   }
 
-  if (typeof body.body !== 'undefined') {
+  if(typeof body.body !== 'undefined') {
     req.article.body = body.body;
   }
 

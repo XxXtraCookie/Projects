@@ -8,7 +8,7 @@ const ArticlesSchema = new Schema({
   author: String,
 }, { timestamps: true });
 
-ArticlesSchema.methods.toJSON = function () {
+ArticlesSchema.methods.toJSON = function() {
   return {
     _id: this._id,
     title: this.title,
