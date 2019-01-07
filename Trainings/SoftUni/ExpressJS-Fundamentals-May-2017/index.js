@@ -42,7 +42,17 @@ http.createServer((req, res) => {
         res.end();
         return;
       }
-      res.writeHead(200);
+
+      let contentType = 'text/plain';
+      if (path.endsWith('.css')) {
+        contentType = 'text/css';
+      } else if (path.endsWith('.js')) {
+        contentType = 'application/javascript';
+      }
+
+      res.writeHead(200, {
+        'Content-Type': contentType
+      });
       res.write(data);
       res.end();
     });
