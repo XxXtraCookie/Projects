@@ -1,61 +1,19 @@
 const http = require('http');
 const url = require('url');
-const fs = require('fs');
+
+const handlers = require('./handlers');
 
 const port = 6001;
-const faviconPath = '/favicon.ico';
 
 http.createServer((req, res) => {
-  const path = url.parse(req.url).pathname;
+  req.path = url.parse(req.url).pathname;
 
-  if (path === '/') {
-    fs.readFile('./index.html', (err, data) => {
-      2
-      if (err) {
-        console.log(err);
-        return;
-      }
+  for (let handler of handlers) {
+    let next = handler(req, res);
 
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-
-      res.write(data);
-      res.end();
-    });
-  } else if (path === faviconPath) {
-    fs.readFile('.' + faviconPath, (err, data) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-
-      res.writeHead(200);
-      res.write(data);
-      res.end();
-    });
-  } else {
-    fs.readFile('.' + path, (err, data) => {
-      if (err) {
-        res.writeHead(404);
-        res.write('404 Not Found');
-        res.end();
-        return;
-      }
-
-      let contentType = 'text/plain';
-      if (path.endsWith('.css')) {
-        contentType = 'text/css';
-      } else if (path.endsWith('.js')) {
-        contentType = 'application/javascript';
-      }
-
-      res.writeHead(200, {
-        'Content-Type': contentType
-      });
-      res.write(data);
-      res.end();
-    });
+    if (!next) {
+      break;
+    }
   }
 }).listen(port);
 
