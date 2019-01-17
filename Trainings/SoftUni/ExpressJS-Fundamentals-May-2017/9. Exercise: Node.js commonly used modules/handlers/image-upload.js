@@ -23,6 +23,24 @@ module.exports = ((req, res) => {
     req.on('data', data => { result += data });
     req.on('end', () => {
       let imageData = query.parse(result);
+      let imageName = imageData['image-name'];
+      let imageUrl = imageData['image-url'];
+
+      if (!imageName || !imageUrl) {
+        fs.readFile('./views/image-upload-error.html', (err, data) => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+          res.writeHead(200, {
+            'Content-Type': 'text/html'
+          });
+          res.write(data);
+          res.end();
+
+          return;
+        })
+      }
 
       database.save(imageData);
 
