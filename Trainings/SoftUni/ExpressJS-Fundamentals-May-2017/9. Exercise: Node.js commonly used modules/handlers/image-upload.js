@@ -23,8 +23,8 @@ module.exports = ((req, res) => {
     req.on('data', data => { result += data });
     req.on('end', () => {
       let imageData = query.parse(result);
-      let imageName = imageData['image-name'];
-      let imageUrl = imageData['image-url'];
+      let imageName = imageData.name;
+      let imageUrl = imageData.url;
 
       if (!imageName || !imageUrl) {
         fs.readFile('./views/image-upload-error.html', (err, data) => {
@@ -37,17 +37,15 @@ module.exports = ((req, res) => {
           });
           res.write(data);
           res.end();
-
-          return;
         })
+      } else {
+        database.save(imageData);
+
+        res.writeHead(302, {
+          'Location': '/'
+        });
+        res.end();
       }
-
-      database.save(imageData);
-
-      res.writeHead(302, {
-        'Location': '/'
-      });
-      res.end();
     });
   }
 });
