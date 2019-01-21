@@ -1,45 +1,19 @@
 .main-header-wrapper {
-  position: relative;
   top: 0;
   width: 100%;
   height: 80px;
+  display: flex;
+  padding: 15px;
   margin: 0 auto;
+  position: relative;
   background-color: #303030;
   box-shadow: 0 2px 5px #000;
+  .main-header-logo {
+    color: #fff;
+    display: flex;
+    font-size: 3em;
+    align-self: center;
+    color: rgb(0, 255, 0);
+    font-family: 'VT323', monospace;
+  }
 }
-
-// Add .effect class to "main-header-wrapper" for different boxshadow
-// .effect {
-//   position: relative;
-// }
-
-// .effect:before,
-// .effect:after {
-//   z-index: -1;
-//   position: absolute;
-//   content: "";
-//   bottom: 15px;
-//   left: 10px;
-//   width: 50%;
-//   top: 80%;
-//   max-width: 300px;
-//   background: #777;
-//   -webkit-box-shadow: 0 15px 10px #000;
-//   -moz-box-shadow: 0 15px 10px #000;
-//   box-shadow: 0 15px 10px #000;
-//   -webkit-transform: rotate(-3deg);
-//   -moz-transform: rotate(-3deg);
-//   -o-transform: rotate(-3deg);
-//   -ms-transform: rotate(-3deg);
-//   transform: rotate(-3deg);
-// }
-
-// .effect:after {
-//   -webkit-transform: rotate(3deg);
-//   -moz-transform: rotate(3deg);
-//   -o-transform: rotate(3deg);
-//   -ms-transform: rotate(3deg);
-//   transform: rotate(3deg);
-//   right: 10px;
-//   left: auto;
-// }

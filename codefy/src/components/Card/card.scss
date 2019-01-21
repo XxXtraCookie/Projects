@@ -2,6 +2,32 @@
   border: none;
   width: 300px;
   height: 300px;
+  padding: 15px;
+  display: flex;
   border-radius: 10px;
+  flex-direction: column;
   background-color: #333;
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    justify-content: center;
+    // border: 1px solid #fff;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .title {
+    flex: 1;
+    display: flex;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+    // border: 1px solid #fff;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
 }

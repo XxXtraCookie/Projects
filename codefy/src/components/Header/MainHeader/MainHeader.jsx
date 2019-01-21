@@ -6,7 +6,7 @@ class MainHeader extends React.Component {
   render() {
     return (
       <div className="main-header-wrapper effect">
-        <span className="main-header-logo"></span>
+        <span className="main-header-logo">_Codefy</span>
       </div>
     );
   }
