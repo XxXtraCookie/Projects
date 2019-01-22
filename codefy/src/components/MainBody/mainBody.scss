@@ -1,9 +1,20 @@
 .main-body-wrapper {
   width: 100%;
-  padding: 20px;
   display: flex;
-  overflow: hidden;
   position: absolute;
   box-sizing: border-box;
+  flex-direction: column;
   height: calc(100% - 80px);
+  .cards-container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  .description-container {
+    flex: 1;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+  }
 }
