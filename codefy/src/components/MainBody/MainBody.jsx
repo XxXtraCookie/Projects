@@ -33,8 +33,8 @@ class MainBody extends React.Component {
 
         <Card
           imgSrc={reactImg}
-          imgAlt="ReactJS"
-          description="ReactJS"
+          imgAlt="React"
+          description="React"
         />
 
         <Card
