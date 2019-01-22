@@ -3,8 +3,8 @@ import './mainBody.scss';
 
 import Card from '../Card';
 
-const htmlImg = require('../../_images/html_5_v2.png');
-const cssImg = require('../../_images/css_3.png');
+const htmlImg = require('../../_images/html_5_v3.png');
+const cssImg = require('../../_images/css_3_v4.png');
 const jsImg = require('../../_images/javascript.png');
 const reactImg = require('../../_images/react.svg');
 const reduxImg = require('../../_images/redux_v2.svg');
