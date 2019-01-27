@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <MainHeader />
+        <MainHeader title="Restaurant Momento and the Pickles" />
         <MainBody />
       </div>
     );

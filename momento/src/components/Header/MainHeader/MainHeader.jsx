@@ -1,19 +1,23 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './mainHeader.scss';
 
 class MainHeader extends React.Component {
   render() {
     return (
       <div className="main-header-wrapper effect">
-        <span className="main-header-logo">_Codefy</span>
+        <span className="main-header-logo">{this.props.title}</span>
       </div>
     );
   }
 }
 
-MainHeader.propTypes = {};
+MainHeader.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
-MainHeader.defaultProps = {};
+MainHeader.defaultProps = {
+  title: 'Momento'
+};
 
 export default MainHeader;
