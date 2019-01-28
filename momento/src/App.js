@@ -1,16 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.scss';
 
 import MainHeader from './components/Header/MainHeader';
-import MainBody from './components/MainBody/MainBody';
+import MainMenu from './components/MainMenu';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <MainHeader title="Restaurant Momento and the Pickles" />
-        <MainBody />
-      </div>
+      <Router>
+        <div className="App">
+          <MainHeader title="Restaurant Momento and the Pickles" />
+          <MainMenu />
+        </div>
+      </Router>
     );
   }
 }

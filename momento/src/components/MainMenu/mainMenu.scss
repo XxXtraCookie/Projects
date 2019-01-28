@@ -8,20 +8,26 @@
     ul.main-menu {
       margin: 0;
       padding: 0;
-      width: 130px;
+      width: 150px;
       display: flex;
       list-style: none;
       position: relative;
       flex-direction: column;
-      li {
+      a {
         flex: 1;
         display: flex;
+        color: #ddd;
         margin: 10px 0;
-        border-radius: 50px;
+        font-weight: 600;
         align-items: center;
+        padding-bottom: 5px;
+        text-decoration: none;
         justify-content: center;
         border: 1px solid #00000000;
         border-bottom: 2px solid #ddd;
+        border-bottom-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+        border-bottom-color: #ddd;
         &:hover {
           cursor: pointer;
           font-weight: 600;
